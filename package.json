@@ -6,10 +6,9 @@
   },
   "main": "/index.js",
   "devDependencies": {
-    "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.10",
-    "react-scripts": "1.0.0"
+    "react-scripts": "4.0.0"
   },
   "name": "1fnz31",
   "description": null,
