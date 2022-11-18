@@ -4,6 +4,14 @@ const user = {
   imageSize: 90,
 }
 
+let isLoggedIn = true
+
+const products = [
+  { title: 'Cabbage', id: 1 },
+  { title: 'Garlic', id: 2 },
+  { title: 'Apple', id: 3 },
+]
+
 function Profile(){
   return (
     <>
@@ -28,17 +36,37 @@ function Greeting({ name }) {
 }
 
 function MyButton() {
-  return <button className="button">I'm a button</button>;
+
+  // Responding to Events
+  function handleClick(){
+    console.log('You clicked me!')
+  }
+  return <button className="button" onClick={handleClick}>Click Me</button>;
 }
 
 export default function App() {
+  const listItems = products.map(product => 
+    <li key={product.id} style={{color: product.isFruit ? 'magenta' : 'darkgreen'}}>
+      {product.title}
+    </li>
+  )
+
   return (
     <div>
       <Greeting name="World" />
       <MyButton />
-      <Profile />
+
+      {/*Conditional Rendering */}
+      {isLoggedIn ? <Profile /> : undefined}
+      {!isLoggedIn && <Profile />}
+
+      {/* Rendering Lists */}
+      <ul>
+        {listItems}
+      </ul>
     </div>
   );
 }
 
-//Conditional Rendering https://beta.reactjs.org/learn#conditional-rendering
+
+
